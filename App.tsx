@@ -1,18 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { Animated, Dimensions, FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { Animated, Dimensions, FlatList, Image, StyleSheet, Text, View, Alert } from 'react-native';
 import React, {FunctionComponent, useRef} from 'react';
+import Carrusel from './assets/carrusel.json';
 
-const images: string[] = [
-  'https://d1icd6shlvmxi6.cloudfront.net/gsc/378QU0/37/09/fa/3709facb9d7543ffaff0b65c02f5c651/images/oboarding/u2.png?pageId=72536fe3-b8e6-4ee3-a10e-c794dba109f0',
-  'https://d1icd6shlvmxi6.cloudfront.net/gsc/378QU0/37/09/fa/3709facb9d7543ffaff0b65c02f5c651/images/oboarding/u8.png?pageId=72536fe3-b8e6-4ee3-a10e-c794dba109f0',
-  'https://d1icd6shlvmxi6.cloudfront.net/gsc/378QU0/37/09/fa/3709facb9d7543ffaff0b65c02f5c651/images/oboarding/u15.png?pageId=72536fe3-b8e6-4ee3-a10e-c794dba109f0',
-];
-const texto: string[] = [
-  'Busca productos alimenticios en tu hogar o en supermercados por medio de sus códigos de barra ',
-  'Obtén la información nutricional y ambiental de los diferentes productos que hayas escaneado para efectuar decisiones conscientes con el planeta y contigo mismo',
-  'Apoya a la comunidad agregando nuevos productos para que así todos tomemos mejores decisiones al consumir alimentos',
-];
-
+interface Carrusel {
+  title: string;
+  url: string;
+  descripcion: string;
+}
 const {width} =Dimensions.get('screen')
 
 export default function App() {
@@ -22,7 +17,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.topcontainer}>
         <Animated.FlatList 
-          data={images}
+          data={Carrusel}
           horizontal
           showsHorizontalScrollIndicator={false} 
           onScroll={Animated.event(
@@ -34,7 +29,9 @@ export default function App() {
           renderItem={ ({item}) => {
             return (
               <View style={ styles.imagecontainer}>
-                <Image style={ styles.image } source={{ uri: item}} />
+                <Image style={ styles.image } source={{ uri: item.url}} />
+                <Text style={ styles.textoTitulo }>{item.title}</Text>
+                <Text style={ styles.texto }>{item.descripcion}</Text>
               </View>
             )
           }}
@@ -42,7 +39,7 @@ export default function App() {
       </View>
       <View style={styles.bottomcontainer}>
         <FlatList 
-          data={images} 
+          data={Carrusel} 
           horizontal
           keyExtractor={(_,index) =>index.toString() } 
           renderItem={ ({index}) => {
@@ -70,6 +67,8 @@ export default function App() {
             )
           }}
         />
+        <Text style={ styles.texto }>¿Te gusta como suena? </Text>
+        <Text style={ styles.button } onPress={() => Alert.alert('pues si funciona')}>Continuar</Text>
       </View>
     </View>
   );
@@ -113,5 +112,32 @@ const styles = StyleSheet.create({
     width: 50,
     padding: 10,
   },
-  texto: {},
+  titlecontainer: {
+    justifyContent: 'flex-end',
+    padding: 40,
+    alignItems: 'center',
+    width
+  },
+  textoTitulo:{
+    color: '#f26d3d',
+    fontSize: 20,
+    fontweight: 'bold',
+    marginTop: 11,
+  },
+  texto: {
+    color: '#f28e07',
+    textAlign: 'center',
+    fontSize: 15,
+    marginTop: 11,
+  },
+  button:{
+    marginTop: 11,
+    marginBottom:25,
+    height:40,
+    width: width-15,
+    backgroundColor: '#f28e07',
+    color: '#fff',
+    textAlign: 'center',
+    lineHeight: 40,
+  },
 });
