@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Escanea" ,
+        "descripcion": "Busca productos alimenticios en tu hogar o en supermercados por medio de sus códigos de barra ",
+        "url":"https://d1icd6shlvmxi6.cloudfront.net/gsc/378QU0/37/09/fa/3709facb9d7543ffaff0b65c02f5c651/images/oboarding/u2.png?pageId=72536fe3-b8e6-4ee3-a10e-c794dba109f0"
+    },
+    {
+        "title": "Infórmate" ,
+        "descripcion": "Obtén la información nutricional y ambiental de los diferentes productos que hayas escaneado para efectuar decisiones conscientes con el planeta y contigo mismo ",
+        "url":"https://d1icd6shlvmxi6.cloudfront.net/gsc/378QU0/37/09/fa/3709facb9d7543ffaff0b65c02f5c651/images/oboarding/u8.png?pageId=72536fe3-b8e6-4ee3-a10e-c794dba109f0"
+    },
+    {
+        "title": "Comparte" ,
+        "descripcion": "Apoya a la comunidad agregando nuevos productos para que así todos tomemos mejores decisiones al consumir alimentos ",
+        "url":"https://d1icd6shlvmxi6.cloudfront.net/gsc/378QU0/37/09/fa/3709facb9d7543ffaff0b65c02f5c651/images/oboarding/u15.png?pageId=72536fe3-b8e6-4ee3-a10e-c794dba109f0"
+    }
+
+]
