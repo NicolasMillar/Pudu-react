@@ -35,7 +35,7 @@ const HomeUserScreen: React.FunctionComponent<IStackScrennProps> = props =>{
                 <Text style={styles.welcome}>What do you want to do?</Text>
                 <View style={styles.buttomContainer}>
                     <Text style={ styles.button1 } onPress={() => alert("Aun no funciono")}>
-                         
+                      Scan products
                     </Text>
                     <Text style={ styles.button2 } onPress={() => alert("Aun no funciono")}>
                          
@@ -52,7 +52,7 @@ const HomeUserScreen: React.FunctionComponent<IStackScrennProps> = props =>{
             </View>
             <View style={styles.footer}>
               <Text style={styles.footerLogo } onPress={() => alert("Aun no funciono")}><Foundation name="magnifying-glass" size={42} color="#187f64" /></Text>
-              <Text onPress={() => alert("Aun no funciono")}><FontAwesome name="home" size={52} color="#f59a23" /></Text>
+              <Text onPress={() => navigation.navigate('HomeUser')}><FontAwesome name="home" size={52} color="#f59a23" /></Text>
               <Text style={styles.footerLogo2} onPress={() => alert("Aun no funciono")}><FontAwesome name="user-circle-o" size={45} color="#187f64" /></Text>
             </View>
         </View>
@@ -126,10 +126,10 @@ const styles = StyleSheet.create({
      borderWidth: 1,
      borderRadius: 5,
      borderColor: '#F28E07',
-     justifyContent: 'center',
-     alignItems: 'center',
      marginLeft: "auto",
-     marginRight: "auto", 
+     marginRight: "auto",
+     fontWeight: '700',
+     color: '#fff'
    },
    button2: {
      backgroundColor: '#025959',
