@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import React, {FunctionComponent, useRef} from 'react';
 import { IStackScrennProps } from '../library/StackScreenProps';
+import { FontAwesome, FontAwesome5, Foundation  } from '@expo/vector-icons';
 
 const {width, height} =Dimensions.get('screen')
 
@@ -16,33 +17,43 @@ const HomeUserScreen: React.FunctionComponent<IStackScrennProps> = props =>{
             <View style={styles.content}>
                 <Text style={styles.welcome}>Welcome!</Text>
                 <View style={styles.rectangle}>
-                    <Text style={styles.title}>Environmental goal</Text>
+                    <Text style={styles.title}>
+                      <FontAwesome name="leaf" size={25} color="#187f64" />
+                      Environmental goal
+                      <FontAwesome name="leaf" size={25} color="#187f64" />
+                    </Text>
                     <Text style={styles.text}>Your contribution this week is equivalent to the capture of CO2 made by 10 trees, Keep it up!</Text>
                 </View>
                 <View style={styles.rectangle}>
-                    <Text style={styles.title}>Fitness goals</Text>
+                    <Text style={styles.title}>
+                      <FontAwesome5 name="utensils" size={24} color="#187f64" />
+                      Fitness goals
+                      <FontAwesome5 name="utensils" size={24} color="#187f64" />
+                    </Text>
                     <Text style={styles.text}>You have lost 1.2% body fat, 0.8% more and you will reach your goal. Keep going!</Text>
                 </View>
                 <Text style={styles.welcome}>What do you want to do?</Text>
                 <View style={styles.buttomContainer}>
                     <Text style={ styles.button1 } onPress={() => alert("Aun no funciono")}>
-                         <Image style={styles.logo} source={require('../../assets/INTERFAZ_PNG-15.png')}/>
+                         
                     </Text>
                     <Text style={ styles.button2 } onPress={() => alert("Aun no funciono")}>
-                         <Image style={styles.logo} source={require('../../assets/INTERFAZ_PNG-14.png')}/>
+                         
                     </Text>
                 </View>
                 <View style={styles.buttomContainer}>
                     <Text style={ styles.button2 } onPress={() => alert("Aun no funciono")}>
-                         <Image style={styles.logo2} source={require('../../assets/book-solid.png')}/>
+                        
                     </Text>
                     <Text style={ styles.button1 } onPress={() => alert("Aun no funciono")}>
-                         <Image style={styles.logo3} source={require('../../assets/chart-column-solid.png')}/>
+                         
                     </Text>
                 </View>
             </View>
             <View style={styles.footer}>
-
+              <Text style={styles.footerLogo } onPress={() => alert("Aun no funciono")}><Foundation name="magnifying-glass" size={42} color="#187f64" /></Text>
+              <Text onPress={() => alert("Aun no funciono")}><FontAwesome name="home" size={52} color="#f59a23" /></Text>
+              <Text style={styles.footerLogo2} onPress={() => alert("Aun no funciono")}><FontAwesome name="user-circle-o" size={45} color="#187f64" /></Text>
             </View>
         </View>
     );
@@ -67,7 +78,8 @@ const styles = StyleSheet.create({
    footer: {
      width,
      height:68,
-     backgroundColor: '#f2f2f2'
+     backgroundColor: '#f2f2f2',
+     flexDirection: 'row',
    },
    logo: {
      width: 134,
@@ -141,6 +153,21 @@ const styles = StyleSheet.create({
      width: 50,
      height: 38,
      alignItems: 'center'
+   },
+   footerLogo: {
+    height,
+    marginTop: 14,
+    marginLeft: 49,
+    marginBottom: 16,
+    marginRight: 80
+   },
+   footerLogo2:{
+    height,
+    marginTop:8,
+    marginBottom: 10,
+    marginLeft: 84,
+    marginRight: 38,
+    alignItems: 'center'
    }
 
 });
