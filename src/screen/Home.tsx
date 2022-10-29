@@ -71,6 +71,7 @@ const HomeScreen: React.FunctionComponent<IStackScrennProps> = props =>{
               }}
               />
               <Text style={ styles.texto }>Do you like how it sounds? </Text>
+              <Text style={ styles.button } onPress={() => navigation.navigate('Login')}>Continue</Text>
           </View>
         </View>
     );
