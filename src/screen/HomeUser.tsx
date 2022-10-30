@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import React, {FunctionComponent, useRef} from 'react';
 import { IStackScrennProps } from '../library/StackScreenProps';
-import { FontAwesome, FontAwesome5, Foundation  } from '@expo/vector-icons';
+import { FontAwesome, FontAwesome5, Foundation, MaterialCommunityIcons  } from '@expo/vector-icons';
 
 const {width, height} =Dimensions.get('screen')
 
@@ -35,24 +35,29 @@ const HomeUserScreen: React.FunctionComponent<IStackScrennProps> = props =>{
                 <Text style={styles.welcome}>What do you want to do?</Text>
                 <View style={styles.buttomContainer}>
                     <Text style={ styles.button1 } onPress={() => alert("Aun no funciono")}>
-                      Scan products
+                      Scan products {"\n"} 
+                      <MaterialCommunityIcons name="barcode-scan" size={45} color="#025959" />
                     </Text>
                     <Text style={ styles.button2 } onPress={() => alert("Aun no funciono")}>
-                         
+                      Search products {"\n"} 
+                      <Foundation name="magnifying-glass" size={43} color="#f28e07" />
                     </Text>
                 </View>
                 <View style={styles.buttomContainer}>
                     <Text style={ styles.button2 } onPress={() => alert("Aun no funciono")}>
-                        
+                      Nutritional record {"\n"} 
+                      <FontAwesome name="book" size={41} color="#f28e07" />
+                      <FontAwesome name="cutlery" size={22} color="#f28e07" />
                     </Text>
                     <Text style={ styles.button1 } onPress={() => alert("Aun no funciono")}>
-                         
+                      Stadistics {"\n"}
+                      <FontAwesome5 name="chart-bar" size={42} color="#025959" /> 
                     </Text>
                 </View>
             </View>
             <View style={styles.footer}>
-              <Text style={styles.footerLogo } onPress={() => alert("Aun no funciono")}><Foundation name="magnifying-glass" size={42} color="#187f64" /></Text>
-              <Text onPress={() => navigation.navigate('HomeUser')}><FontAwesome name="home" size={52} color="#f59a23" /></Text>
+              <Text style={styles.footerLogo } onPress={() => alert("Aun no funciono")}><Foundation name="magnifying-glass" size={43} color="#187f64" /></Text>
+              <Text style={styles.footerLogo1 } onPress={() => navigation.navigate('HomeUser')}><FontAwesome name="home" size={55} color="#f59a23" /></Text>
               <Text style={styles.footerLogo2} onPress={() => alert("Aun no funciono")}><FontAwesome name="user-circle-o" size={45} color="#187f64" /></Text>
             </View>
         </View>
@@ -88,7 +93,7 @@ const styles = StyleSheet.create({
    },
    welcome: {
      color: '#f26d3d',
-     marginTop: 30,
+     marginTop: 17,
      fontSize: 28,
      marginBottom: 31,
    },
@@ -129,7 +134,10 @@ const styles = StyleSheet.create({
      marginLeft: "auto",
      marginRight: "auto",
      fontWeight: '700',
-     color: '#fff'
+     color: '#fff',
+     textAlign: 'center',
+     fontSize: 16,
+     paddingTop: 15,
    },
    button2: {
      backgroundColor: '#025959',
@@ -138,33 +146,34 @@ const styles = StyleSheet.create({
      borderWidth: 1,
      borderRadius: 5,
      borderColor: '#025959',
-     justifyContent: 'center',
-     alignItems: 'center',
      marginLeft: "auto",
      marginRight: "auto",
+     fontWeight: '700',
+     color: '#fff',
+     textAlign: 'center',
+     fontSize: 16,
+     paddingTop: 15,
 
    },
-   logo2: {
-     width: 42,
-     height: 39,
-     alignItems: 'center'
-   },
-   logo3: {
-     width: 50,
-     height: 38,
-     alignItems: 'center'
-   },
    footerLogo: {
-    height,
+    width: 38,
+    height: 38,
     marginTop: 14,
     marginLeft: 49,
     marginBottom: 16,
     marginRight: 80
    },
+   footerLogo1: {
+    width: 56,
+    height: 48,
+    marginTop: 9, 
+    marginBottom: 11
+   },
    footerLogo2:{
-    height,
-    marginTop:8,
-    marginBottom: 10,
+    width: 45,
+    height: 45,
+    marginTop:14,
+    marginBottom: 9,
     marginLeft: 84,
     marginRight: 38,
     alignItems: 'center'
