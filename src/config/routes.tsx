@@ -3,6 +3,7 @@ import HomeScreen from "../screen/Home";
 import HomeUserScreen from "../screen/HomeUser";
 import LoginScreen from "../screen/Login";
 import ScannerScreen from "../screen/Scan";
+import SearchBarScreen from "../screen/SearchBar";
 
 const routes: IRouteprops[] = [
     {
@@ -20,6 +21,10 @@ const routes: IRouteprops[] = [
     {
         name: 'Scanbar',
         component: ScannerScreen
+    },
+    {
+        name: 'Search',
+        component: SearchBarScreen
     }
 ]
 
