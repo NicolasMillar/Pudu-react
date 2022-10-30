@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import React, {FunctionComponent, useRef} from 'react';
 import { IStackScrennProps } from '../library/StackScreenProps';

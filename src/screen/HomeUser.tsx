@@ -34,7 +34,7 @@ const HomeUserScreen: React.FunctionComponent<IStackScrennProps> = props =>{
                 </View>
                 <Text style={styles.welcome}>What do you want to do?</Text>
                 <View style={styles.buttomContainer}>
-                    <Text style={ styles.button1 } onPress={() => alert("Aun no funciono")}>
+                    <Text style={ styles.button1 } onPress={() => navigation.navigate('Scanbar')}>
                       Scan products {"\n"} 
                       <MaterialCommunityIcons name="barcode-scan" size={45} color="#025959" />
                     </Text>
