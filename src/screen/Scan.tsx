@@ -2,12 +2,26 @@ import { StyleSheet, Text, View, Button  } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { IStackScrennProps } from '../library/StackScreenProps';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { firestore } from '../../firebase'
 
 const ScannerScreen: React.FunctionComponent<IStackScrennProps> = props =>{
     const {navigation, route, name} =props;
     const [hasPermission, setHasPermission] = useState<any | null> (null);
     const [scanned, setScanned] = useState(false);
     const [text, setText] = useState('Not yet scanned')
+    const initialProductState = {
+        id: '',
+        product_name: '',
+    }
+
+    const [product, setProduct] = useState(initialProductState);
+    const getProduct = async (id: any) => {
+        const dbRef = firestore.collection('products').doc(id);
+        const doc = await dbRef.get();
+        const product_name = doc?.data()?.product_name;
+        setProduct({ ...product, id, product_name });
+    }
+
   
     const askForCameraPermission = () => {
       (async () => {
@@ -22,7 +36,9 @@ const ScannerScreen: React.FunctionComponent<IStackScrennProps> = props =>{
 
     const handleBarCodeScanned = ({ type, data }: {type: any, data: any}) => {
         setScanned(true);
-        setText(data)
+        
+        getProduct(data);
+        setText(product.product_name);
         console.log('Type: ' + type + '\nData: ' + data)
     };  
 
@@ -44,7 +60,7 @@ const ScannerScreen: React.FunctionComponent<IStackScrennProps> = props =>{
     return (
         <View style={styles.container}>
             <View style={styles.barcodebox}>
-            <BarCodeScanner
+              <BarCodeScanner
                 onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
                 style={{ height: 400, width: 400 }} />
             </View>
