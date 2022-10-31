@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Button  } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { IStackScrennProps } from '../library/StackScreenProps';
+import { ProductProps } from '../typings';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { firestore } from '../../firebase'
 
@@ -16,10 +17,17 @@ const ScannerScreen: React.FunctionComponent<IStackScrennProps> = props =>{
 
     const [product, setProduct] = useState(initialProductState);
     const getProduct = async (id: any) => {
-        const dbRef = firestore.collection('products').doc(id);
+        const dbRef = firestore.collection('Products').doc(id);
         const doc = await dbRef.get();
         const product_name = doc?.data()?.product_name;
+        // type of product_name
+        console.log("TIPO de"+typeof(product_name));
         setProduct({ ...product, id, product_name });
+        console.log("PRODUCTO en scan:    "+product_name);
+        if(product_name != null){
+            navigation.navigate('Product', {id: product.id, product_name: product.product_name});
+        }
+     
     }
 
   
@@ -38,8 +46,10 @@ const ScannerScreen: React.FunctionComponent<IStackScrennProps> = props =>{
         setScanned(true);
         
         getProduct(data);
-        setText(product.product_name);
         console.log('Type: ' + type + '\nData: ' + data)
+
+        setText(product.product_name);
+        
     };  
 
     if (hasPermission === null) {
