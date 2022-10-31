@@ -9,14 +9,13 @@
     - [What's the problem?](#whats-the-problem)
     - [How can technology help?](#how-can-technology-help)
     - [The idea](#the-idea)
-  - [Call for code 2021 video](#call-for-code-2021-video)
+  - [Call for code 2022 video](#call-for-code-2022-video)
   - [Video Demo Hackathon LATAM](#video-demo-hackathon-latam)
   - [The architecture](#the-architecture)
   - [Project roadmap](#project-roadmap)
   - [Getting started](#getting-started)
   - [Built with](#built-with)
   - [Authors](#authors)
-  - [Separate repositories](#separate-repositories)
   - [Acknowledgments](#acknowledgments)
 
 ## Short description
@@ -36,11 +35,11 @@ We collect data from public databases and user contributions, then we make class
 of product environment impact such as CO2 emission, water usage, energy usage and land usage in the making of a product. The goal is that users can easily share and compare
 environmental impact vs nutritional value in foods, so they themselves can make better choices for the planet. In order to reach the most people we want to create the best app possible, by making it a social experience, in which users reach their goals together and inspire others to do so.
 
-## Call for code 2021 video
+## Call for code 2022 video
 
 [![](https://i.imgur.com/xszh2dK.jpg)](https://www.youtube.com/watch?v=9ddosvqGiPU)
 
-## Video Demo Hackathon LATAM
+## Video Demo (English subtitles)
 
 [![](https://i.imgur.com/A2kQve9.jpg)](https://www.youtube.com/watch?v=_8TJStQ3gyc)
 
@@ -98,10 +97,6 @@ Test with an Android device or emulator.
 * Diego Jiménez (Software Developer) - diegojimenez377@gmail.com
 * Sebastián Hernández (Medic & Musician) - sebastian.hernandez.teius@gmail.com
 * Gabriel Pradenas (Artist & Video Producer) - gabriel.pradenas95@gmail.com
-
-
-## Separate repositories
-* [Pudu helpers](https://github.com/felipezxkq/Pudu_helpers)
 
 
 ## Acknowledgments
