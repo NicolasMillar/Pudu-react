@@ -38,7 +38,7 @@ const HomeUserScreen: React.FunctionComponent<IStackScrennProps> = props =>{
                       Scan products {"\n"} 
                       <MaterialCommunityIcons name="barcode-scan" size={45} color="#025959" />
                     </Text>
-                    <Text style={ styles.button2 } onPress={() => alert("Aun no funciono")}>
+                    <Text style={ styles.button2 } onPress={() => navigation.navigate('Search')}>
                       Search products {"\n"} 
                       <Foundation name="magnifying-glass" size={43} color="#f28e07" />
                     </Text>

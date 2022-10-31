@@ -5,6 +5,7 @@ import LoginScreen from "../screen/Login";
 import ProductScreen from "../screen/Product";
 import ScannerScreen from "../screen/Scan";
 import { ProductProps } from "../typings";
+import SearchBarScreen from "../screen/SearchBar";
 
 const routes: IRouteprops[] = [
     {
@@ -26,6 +27,10 @@ const routes: IRouteprops[] = [
     {
         name: 'Product',
         component: ProductScreen
+    },
+    {
+        name: 'Search',
+        component: SearchBarScreen
     },
 ]
 
