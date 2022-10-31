@@ -1,16 +1,66 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Dimensions, Image, TextInput } from 'react-native';
-import React, {FunctionComponent, useRef} from 'react';
+import { StyleSheet, Text, View, Dimensions, Image, TextInput, FlatList } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { IStackScrennProps } from '../library/StackScreenProps';
 import { FontAwesome, FontAwesome5, Foundation, MaterialCommunityIcons  } from '@expo/vector-icons';
 
 const {width, height} =Dimensions.get('screen')
 
 const SearchBarScreen: React.FunctionComponent<IStackScrennProps> = props =>{
+    const [filterData, setFilerData] = useState<any[]>([]) 
+    const [masterData, setmasterData] = useState<any[]>([])
+    const [search, setSearch] = useState('');
     const {navigation, route, name} =props;
 
-    function filterSearch(text:any){
-        
+    useEffect( () => {
+      fetchPost(); 
+      return () => {
+
+      }
+    }, [])
+
+    const fetchPost = () => {
+      const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+      fetch(apiUrl)
+      .then( (response) => response.json())
+      .then( (responseJson) => {
+         setFilerData(responseJson);
+         setmasterData(responseJson);
+      }).catch( (error) => {
+        console.error(error);
+      })
+    }
+
+    const filterSearch = (text:any) => {
+      if (text){
+        const newData = masterData.filter( (item) => {
+          const itemData =  item.title ? item.title.toUpperCase() 
+                        : ''.toUpperCase();
+          const textData = text.toUpperCase();
+          return itemData.indexOf(textData)> -1;
+        });
+        setFilerData(newData);
+        setSearch(text);
+      } else{
+        setFilerData(masterData);
+        setSearch(text);
+      }
+    }
+
+    const ItemView = ({item}:any) => { 
+      return(
+        <Text style={styles.itemStyle}>
+          {item.id}{'. '}{item.title.toUpperCase()}
+        </Text>
+      )
+    }
+
+    const ItemSeparatorView = () => {
+      return (
+        <View style={{height: 0.5, width, backgroundColor: '#c8c8c8'}}>
+
+        </View>
+      )
     }
 
     return (
@@ -20,6 +70,12 @@ const SearchBarScreen: React.FunctionComponent<IStackScrennProps> = props =>{
             </View>
             <View style={styles.content}>
                 <TextInput style={styles.searchbar} onChangeText={(text) => filterSearch(text)} />
+                <FlatList
+                  data={filterData}
+                  keyExtractor= { (item, index) => index.toString()}
+                  ItemSeparatorComponent={ItemSeparatorView}
+                  renderItem={ItemView} 
+                />
             </View>
             <View style={styles.footer}>
               <Text style={styles.footerLogo } onPress={() => alert("Aun no funciono")}><Foundation name="magnifying-glass" size={43} color="#187f64" /></Text>
@@ -87,6 +143,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     marginTop: 22,
+   },
+   itemStyle: {
+    padding: 15,
    }
 
 });
