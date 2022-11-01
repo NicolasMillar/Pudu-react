@@ -37,7 +37,7 @@ environmental impact vs nutritional value in foods, so they themselves can make 
 
 ## Call for code 2022 video
 
-[![](https://i.imgur.com/xszh2dK.jpg)](https://www.youtube.com/watch?v=9ddosvqGiPU)
+[![](blob:https://imgur.com/86ea9155-aee4-4b2f-ac14-756ff75aa71b)](https://www.youtube.com/watch?v=bYUlBjX90Yk)
 
 ## Video Demo (English subtitles)
 

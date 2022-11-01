@@ -8,7 +8,8 @@ import { styles } from '../styles/productStyles';
 import { firestore } from '../../firebase'
 
 const ProductScreen: React.FunctionComponent<ProductProps> = props =>{
-    const {navigation, route, name, id, product_name} =props;
+    const {navigation, route, name, id, product_name, product_image, fat_100g, proteins_100g, energy_kcal_100g, carbohydrates_100g
+    , water_usage, carbon_footprint_serving, land_usage} =props;
 
     const initialProductState = {
         id: '1',
@@ -29,71 +30,44 @@ const ProductScreen: React.FunctionComponent<ProductProps> = props =>{
             <View style={styles.header}>
                 <Image style={styles.logo} source={require('../../assets/INTERFAZ_PNG-11.png')}/>  
             </View>
+
             <View style={styles.content}>
-
-            <View style={styles.nameAndImageContainer}>
-                <Text style={styles.title}>
-                    { params?.product_name }
-                </Text>
-                <Image style={styles.productImage} source={{uri: params?.product_image}}/>  
-            </View>
-
-            <View style={styles.verticalContainer}>
-                <Text style={styles.informationLabel}>
-                    Nutritional information (per 100g)
-                </Text>
-
-                <View style={styles.horizontalContainer}>
-                    <Text>{ params?.energy_kcal_100g }kcal</Text>
-                    <Text>{ params?.proteins_100g }g</Text>
-                </View>
-                <View style={styles.horizontalContainer}>
-                    <Text>{ params?.fat_100g}g</Text>
-                    <Text>{ params?.carbohydrates_100g}g</Text>
-                </View>
-
-            </View>
-            
-                    
-                <View style={styles.rectangle}>
+                <View style={styles.nameAndImageContainer}>
                     <Text style={styles.title}>
-                      <FontAwesome5 name="utensils" size={24} color="#187f64" />
-                      Fitness goals
-                      <FontAwesome5 name="utensils" size={24} color="#187f64" />
+                        { params?.product_name }
                     </Text>
-                    <Text style={styles.text}>You have lost 1.2% body fat, 0.8% more and you will reach your goal. Keep going!</Text>
+                    <Image style={styles.productImage} source={{uri: params?.product_image}}/>  
                 </View>
-                <Text style={styles.welcome}>What do you want to do?</Text>
-                <View style={styles.buttomContainer}>
-                    <Text style={ styles.button1 } onPress={() => navigation.navigate('Scanbar')}>
-                      Scan products {"\n"} 
-                      <MaterialCommunityIcons name="barcode-scan" size={45} color="#025959" />
+
+                <View style={styles.verticalContainer}>
+                    <Text style={styles.informationLabel}>
+                        Nutritional information (per 100g)
                     </Text>
-                    <Text style={ styles.button2 } onPress={() => navigation.navigate('Search')}>
-                      Search products {"\n"} 
-                      <Foundation name="magnifying-glass" size={43} color="#f28e07" />
-                    </Text>
+                    <Text style={styles.informationText}>Calories: { params?.energy_kcal_100g }kcal</Text>
+                    <Text style={styles.informationText}>Proteins:{ params?.proteins_100g }g</Text>
+                    <Text style={styles.informationText}>Fat: { params?.fat_100g}g</Text>
+                    <Text style={styles.informationText}>Carbs: { params?.carbohydrates_100g}g</Text>
+
                 </View>
-                <View style={styles.buttomContainer}>
-                    <Text style={ styles.button2 } onPress={() => alert("Aun no funciono")}>
-                      Nutritional record {"\n"} 
-                      <FontAwesome name="book" size={41} color="#f28e07" />
-                      <FontAwesome name="cutlery" size={22} color="#f28e07" />
+
+                <View style={styles.verticalContainer}>
+                    <Text style={styles.informationLabel}>
+                        Estimated Environmental Impact (per serving)
                     </Text>
-                    <Text style={ styles.button1 } onPress={() => alert("Aun no funciono")}>
-                      Stadistics {"\n"}
-                      <FontAwesome5 name="chart-bar" size={42} color="#025959" /> 
-                    </Text>
+                    <Text style={styles.informationText}>Carbon footprint: { params?.carbon_footprint_serving }kg CO2</Text>
+                    <Text style={styles.informationText}>Water usage:{ params?.water_usage }lt</Text>
+                    <Text style={styles.informationText}>Land usage: { params?.land_usage}meters squared</Text>
+
                 </View>
+                
+                        
+                
             </View>
             <View style={styles.footer}>
-              <Text style={styles.footerLogo } onPress={() => alert("Aun no funciono")}><Foundation name="magnifying-glass" size={43} color="#187f64" /></Text>
-              <Text style={styles.footerLogo1 } onPress={() => navigation.navigate('HomeUser')}><FontAwesome name="home" size={55} color="#f59a23" /></Text>
-              <Text style={styles.footerLogo2} onPress={() => alert("Aun no funciono")}><FontAwesome name="user-circle-o" size={45} color="#187f64" /></Text>
+                <Text style={styles.footerLogo } onPress={() => alert("Aun no funciono")}><Foundation name="magnifying-glass" size={43} color="#187f64" /></Text>
+                <Text style={styles.footerLogo1 } onPress={() => navigation.navigate('HomeUser')}><FontAwesome name="home" size={55} color="#f59a23" /></Text>
+                <Text style={styles.footerLogo2} onPress={() => alert("Aun no funciono")}><FontAwesome name="user-circle-o" size={45} color="#187f64" /></Text>
             </View>
-            <Text>
-                {params?.product_name}
-            </Text>
 
         </View>
     )

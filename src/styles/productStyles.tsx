@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 4,
+    display: "flex",
+    flexDirection: "column",
   },
   header:{
       height: 69,
@@ -18,11 +19,16 @@ export const styles = StyleSheet.create({
       marginBottom: 4,
   },
   content: {
-    flex: 2,
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "flex-start",
     backgroundColor: '#fff',
-    alignItems: 'center',
+
   },
   footer: {
+    position: "absolute",
+    bottom: -400,
+    width: "100%",
     height:68,
     backgroundColor: '#f2f2f2',
     flexDirection: 'row',
@@ -113,16 +119,16 @@ export const styles = StyleSheet.create({
   },
   nameAndImageContainer: {
       flexDirection: 'row',
+      alignItems: 'flex-start',
       justifyContent: 'space-between',
       marginLeft: "auto",
       marginRight: "auto",
-      marginBottom: "auto"
+      marginBottom: "auto",
+      marginTop: 20,
   },
   verticalContainer:{
       flexDirection: 'column',
-      marginLeft: "auto",
-      marginRight: "auto",
-      marginBottom: "auto",
+      marginLeft: 40,
       alignItems: 'flex-start',
   },
   horizontalContainer:{
@@ -139,8 +145,15 @@ export const styles = StyleSheet.create({
   },
   informationLabel: {
       fontSize: 16,
+      marginTop: 20,
       font: 'Helvetica',
       color: '#187f64',
       alignSelf: 'flex-start',
+  },
+  informationText: {
+      fontSize: 16,
+      marginTop: 10,
+      fontWeight: 'bold',
+      font: 'Helvetica',
   },
 });

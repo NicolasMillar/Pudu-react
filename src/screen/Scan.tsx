@@ -13,6 +13,11 @@ const ScannerScreen: React.FunctionComponent<IStackScrennProps> = props =>{
     const initialProductState = {
         id: '',
         product_name: '',
+        product_image: '',
+        fat_100g: '',
+        proteins_100g: '',
+        energy_kcal_100g: '',
+        carbohydrates_100g: '',
     }
 
     const [product, setProduct] = useState(initialProductState);
@@ -20,12 +25,15 @@ const ScannerScreen: React.FunctionComponent<IStackScrennProps> = props =>{
         const dbRef = firestore.collection('Products').doc(id);
         const doc = await dbRef.get();
         const product_name = doc?.data()?.product_name;
-        // type of product_name
-        console.log("TIPO de"+typeof(product_name));
-        setProduct({ ...product, id, product_name });
+        const product_image = doc?.data()?.product_image;
+        const fat_100g = doc?.data()?.fat_100g;
+        const proteins_100g = doc?.data()?.proteins_100g;
+        const energy_kcal_100g = doc?.data()?.energy_kcal_100g;
+        const carbohydrates_100g = doc?.data()?.carbohydrates_100g;
+        setProduct({ ...product, id, product_name, product_image, fat_100g, proteins_100g, energy_kcal_100g, carbohydrates_100g });
         console.log("PRODUCTO en scan:    "+product_name);
         if(product_name != null){
-            navigation.navigate('Product', {id: product.id, product_name: product.product_name});
+            navigation.navigate('Product', {id, product_name, product_image, fat_100g, proteins_100g, energy_kcal_100g, carbohydrates_100g});
         }
      
     }
